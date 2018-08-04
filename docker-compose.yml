@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  postgres:
+    image: shintech/blog-database
+    build: .
+    container_name: postgres
+    network_mode: bridge
+    env_file:
+        - ./blog.env
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    restart: always
